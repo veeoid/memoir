@@ -1,0 +1,103 @@
+/* Apply the background to the whole page */
+.auth-page-background {
+  background-color: #a8a6a6;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+/* Main container for sign in and sign up, which fills the viewport */
+.auth-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container for the form and welcome message */
+.auth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Full width */
+  max-width: 1000px; /* Or the max-width you prefer */
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  background: rgba(255, 255, 255, 0.85); /* Slight white overlay */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Style for the form and welcome sections */
+.auth-form-container, .auth-welcome-container {
+  flex: 1; /* Split space evenly */
+  padding: 5rem; /* Padding inside the containers */
+  color: black;
+}
+
+/* Input styles */
+.auth-form input {
+  width: calc(100% - 30px); /* Full width minus padding */
+  margin: 10px 0 20px; /* Increase bottom margin */
+  padding: 20px; /* Larger padding for a taller input */
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Rounded borders */
+}
+
+/* Button styles */
+.auth-form button, .auth-welcome-container button {
+  width: calc(100% - 30px); /* Full width minus padding */
+  margin-top: 0; /* Remove top margin */
+  padding: 20px; 
+  border-radius: 20px; /* Rounded borders */
+  border: none;
+  background-color: #ff4b2b; /* Example button color */
+  color: white;
+  cursor: pointer;
+}
+.auth-forgot-password {
+  display: block; /* Ensure it's displayed as a block */
+  margin-top: 1rem; /* Space above the link */
+  margin-bottom: 2rem; /* Space below the link */
+  text-align: center; /* Center the text */
+  /* ... add any additional styles you want for this link ... */
+}
+
+.auth-social-sign-in button{
+  margin-bottom: 1rem;
+}
+
+.auth-form button:hover, .auth-welcome-container button:hover {
+  background-color: #e24622; /* Darker shade for hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-form input,
+  .auth-form button {
+    width: 100%; /* Full width for mobile */
+  }
+
+  /* Stack the form and welcome containers vertically on smaller screens */
+  .auth-container {
+    flex-direction: column;
+  }
+
+  /* Adjust padding for a tighter fit on mobile */
+  .auth-form-container, .auth-welcome-container {
+    padding: 2rem;
+  }
+}
+
+/* Additional responsive tweaks if needed */
+@media (max-width: 480px) {
+  .auth-form-container, .auth-welcome-container {
+    padding: 1rem;
+  }
+}

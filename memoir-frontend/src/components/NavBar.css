@@ -1,0 +1,107 @@
+/* General navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+/* Styles for the content on the right side of the navbar */
+.navbar-content {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the user info and dropdown menu */
+.navbar-user {
+  position: relative;
+}
+
+.navbar-user-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Dropdown menu styles */
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  margin-top: 0.5rem;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.navbar-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-dropdown ul li {
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-dropdown ul li:last-child {
+  border-bottom: none;
+}
+
+.navbar-dropdown ul li a,
+.navbar-dropdown ul li button {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.navbar-dropdown ul li a:hover,
+.navbar-dropdown ul li button:hover {
+  background-color: #f6f6f6;
+}
+
+/* Style for Sign In and Sign Up buttons */
+.navbar-buttons {
+  display: flex;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  margin-left: 0.5rem;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.navbar-link:hover {
+  background-color: white;
+  color: #333;
+}

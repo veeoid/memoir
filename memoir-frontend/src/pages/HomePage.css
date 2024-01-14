@@ -1,0 +1,69 @@
+.home-page {
+    text-align: center;
+  }
+  
+  .hero {
+    background-image: url('/homepage-background.jpg'); /* Make sure this is the correct path */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 500px;
+    min-height: 50vh; /* Minimum height to be at least half the viewport height */
+  }
+  
+  
+  .hero h1 {
+    margin: 0;
+    font-size: 3rem; /* Large font size for the hero message */
+  }
+  
+  .hero p {
+    margin-top: 20px;
+    font-size: 1.5rem; /* Smaller font size for the subtext */
+  }
+  
+ /* ... other styles ... */
+
+.blog-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .blog-post-summary {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures that everything inside the container fits nicely */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .blog-post-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .blog-post-image {
+    width: 100%;
+    height: 200px; /* Fixed height, or use 'auto' for variable height */
+    object-fit: cover; /* Ensures the image covers the area, might crop */
+  }
+  
+  .blog-post-info {
+    padding: 15px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .blog-listing {
+      grid-template-columns: 1fr; /* Stack them on top of each other on smaller screens */
+    }
+  
+    .blog-post-image {
+      height: auto;
+    }
+  }
+  
