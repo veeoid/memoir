@@ -1,69 +1,113 @@
+/* HomePage.css */
 .home-page {
-    text-align: center;
-  }
-  
-  .hero {
-    background-image: url('/homepage-background.jpg'); /* Make sure this is the correct path */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    padding: 100px 500px;
-    min-height: 50vh; /* Minimum height to be at least half the viewport height */
-  }
-  
-  
-  .hero h1 {
-    margin: 0;
-    font-size: 3rem; /* Large font size for the hero message */
-  }
-  
-  .hero p {
-    margin-top: 20px;
-    font-size: 1.5rem; /* Smaller font size for the subtext */
-  }
-  
- /* ... other styles ... */
+  text-align: center;
+}
+
+.hero {
+  background-image: url('/homepage-background.jpg'); /* Update this with your actual image path */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem; /* Adjust top and bottom padding as needed, 1rem side padding for smaller screens */
+  min-height: 50vh;
+}
+
+.hero h1 {
+  font-size: 3rem; /* Large font size for the main title */
+}
+
+.hero p {
+  font-size: 1.5rem; /* Subtitle text size */
+}
 
 .blog-listing {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Cards will take up as much space as possible, with a minimum width of 280px */
+  gap: 2rem; /* Space between cards */
+  padding: 2rem; /* Padding around the grid */
+}
+
+.blog-post-summary {
+  background: #fff;
+  border-radius: 10px; /* Rounded corners for the cards */
+  overflow: hidden; /* Ensures contents stay within the rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease-in-out; /* Smooth transformation on hover */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Organize image and text in a column */
+}
+
+.blog-post-summary:hover {
+  transform: translateY(-5px); /* Slightly raise the card on hover */
+}
+
+.blog-post-image {
+  width: 100%;
+  height: 180px; /* Constant height for all images */
+  /* object-fit: cover; Ensures image covers the area */
+}
+
+.blog-post-info {
+  padding: 1rem; /* Padding inside the card for the text */
+  display: flex;
+  flex-direction: column; /* Organize title and date in a column */
+  justify-content: space-between; /* Space out title and date */
+  flex: 1; /* Take up remaining space after image */
+}
+
+.blog-post-title {
+  font-size: 1.25rem; /* Title size within the card */
+  margin: 0.5rem 0; /* Space around the title */
+  color: black; /* Title color */
+}
+
+.blog-post-date {
+  font-size: 0.9rem; /* Smaller text for the date */
+  color: #666; /* Lighter color for less emphasis */
+  margin-top: auto; /* Push date to bottom */
+}
+
+@media (max-width: 768px) {
+  .blog-listing {
+    grid-template-columns: 1fr; /* Full width cards on smaller screens */
   }
-  
-  .blog-post-summary {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden; /* Ensures that everything inside the container fits nicely */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
+
+  .hero {
+    padding: 2rem 1rem; /* Adjusted padding for smaller screens */
   }
-  
-  .blog-post-summary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.home-footer {
+  background: #333; /* Dark background for the footer */
+  color: #fff;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around; /* Space out the content and social media sections */
+  align-items: center;
+}
+
+.footer-content h2,
+.footer-social-media h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-content p,
+.footer-content nav,
+.footer-social-media a {
+  margin-bottom: 0.5rem;
+  color: #fff; /* White text for readability */
+  text-decoration: none; /* No underlines on links */
+}
+
+.footer-content nav a:hover,
+.footer-social-media a:hover {
+  text-decoration: underline; /* Underline on hover for links */
+}
+
+@media (max-width: 768px) {
+  .home-footer {
+    flex-direction: column; /* Stack the sections on top of each other on smaller screens */
   }
-  
-  .blog-post-image {
-    width: 100%;
-    height: 200px; /* Fixed height, or use 'auto' for variable height */
-    object-fit: cover; /* Ensures the image covers the area, might crop */
-  }
-  
-  .blog-post-info {
-    padding: 15px;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .blog-listing {
-      grid-template-columns: 1fr; /* Stack them on top of each other on smaller screens */
-    }
-  
-    .blog-post-image {
-      height: auto;
-    }
-  }
-  
+}

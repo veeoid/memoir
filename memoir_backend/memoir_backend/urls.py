@@ -14,12 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# memoir_backend/urls.py
 from django.contrib import admin
-from django.urls import path, include  # Make sure include is imported here
-
+from django.urls import path, include
+from .views import home  # Import the home view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/blog/', include('blog.urls')),  # Include blog app urls
-    # ... other URL patterns ...
+    path('api/blog/', include('blog.urls')),
+    path('', home, name='home'),
 ]

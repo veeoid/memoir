@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { User } from '../types/user'; // Import the User type
 import { useAuth } from '../contexts/AuthContext';
 import './NavBar.css'; // make sure to create and link your NavBar.css
 
@@ -12,6 +13,9 @@ const NavBar: React.FC = () => {
     signOut();
     navigate('/');
   };
+  const handleCreate = () => {
+    navigate('/create-blog'); // Navigate to the create blog page
+  };
 
   return (
     <nav className="navbar">
@@ -21,14 +25,19 @@ const NavBar: React.FC = () => {
       </Link>
 
       <div className="navbar-content">
-        {user ? (
-          <div className="navbar-user">
-            <button
-              className="navbar-user-button"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              {user.name}
-            </button>
+      {user && (
+        <button onClick={handleCreate} className="navbar-create">
+          Create
+        </button>
+      )}
+      {user ? (
+        <div className="navbar-user">
+          <button
+            className="navbar-user-button"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {user.email || 'User'} {/* Fallback to 'User' if name is not available */}
+          </button>
             {isDropdownOpen && (
               <div className="navbar-dropdown">
                 <ul>

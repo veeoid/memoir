@@ -11,17 +11,21 @@ const SignInPage: React.FC = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
-    // Ensure proper typing and null checking
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const email = formData.get('email')?.toString() || '';
+    const password = formData.get('password')?.toString() || '';
 
-    if (typeof email === 'string' && typeof password === 'string' && email && password) {
-      // Assuming successful authentication for now
-      signIn(email);  // Update global state with the user's name
-      navigate('/'); // Navigate to the homepage after successful sign-in
+    if (email && password) {
+      try {
+        // Assuming signIn is an async function that returns a promise
+        await signIn(email, password); // Pass email and password to signIn
+        navigate('/'); // Navigate to the homepage on successful sign-in
+      } catch (error) {
+        // Handle sign-in failure (e.g., display an error message)
+        console.error('Sign-in failed:', error);
+      }
     } else {
-      // Handle sign-in failure
-      console.error('Sign-in failed: Invalid credentials');
+      // Handle case where email or password is not provided
+      console.error('Sign-in failed: Please enter your email and password');
     }
   };
 

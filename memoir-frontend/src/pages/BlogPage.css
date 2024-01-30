@@ -1,0 +1,54 @@
+.blog-page-container {
+    max-width: 1000px; /* Increased max-width for more space */
+    margin: auto;
+    padding: 80px 40px; /* Increased padding on the sides */
+    text-align: left; /* Align text to the left for a more traditional reading style */
+    box-sizing: border-box;
+}
+
+.blog-title {
+    margin: 20px 0;
+    font-size: 3rem;
+    color: white;
+    text-align: center; /* Center the title even though the container text is aligned left */
+}
+
+.blog-post-image {
+    width: 100%; /* Full width of the container */
+    max-width: 100%; /* Allow the image to be as wide as the container */
+    height: auto;
+    margin: 20px 0; /* Maintain vertical spacing */
+    display: block;
+}
+
+.blog-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: white;
+    margin: 10px; /* Add a uniform margin around the text */
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding-right: 60px; /* Increase right padding for more space on the right */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 800px) {
+    .blog-page-container {
+        padding: 15px;
+    }
+
+    .blog-title {
+        font-size: 2.5rem; /* Adjust title size on smaller screens */
+    }
+
+    .blog-content {
+        padding: 0 10px; /* Reduce side padding on smaller screens */
+        font-size: 1rem;
+    }
+
+    .blog-post-image {
+        margin-left: auto; /* Keep the image centered on smaller screens */
+        margin-right: auto;
+    }
+}

@@ -1,22 +1,39 @@
-import React, { createContext, useContext, useState } from 'react';
+// contexts/AuthContext.tsx
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type User = {
-  name: string;
-};
+// Define a type for the user. Adjust according to your user model.
+interface User {
+  email: string;
+  // Add other user properties as needed
+}
 
-type AuthContextType = {
+// Define the shape of the context's data
+interface AuthContextType {
   user: User | null;
-  signIn: (name: string) => void;
+  signIn: (email: string, password: string) => Promise<void>;
   signOut: () => void;
-};
+}
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+// Create the context with an initial value
+const AuthContext = createContext<AuthContextType>(null!);
 
-export const AuthProvider: React.FC = ({ children }) => {
+// AuthProvider component
+interface AuthProviderProps {
+  children: ReactNode; // This type allows any valid React child
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  const signIn = (name: string) => setUser({ name });
-  const signOut = () => setUser(null);
+  const signIn = async (email: string, password: string) => {
+    // Implement your sign-in logic here
+    setUser({ email }); // Assuming a successful sign-in
+  };
+
+  const signOut = () => {
+    // Implement sign-out logic
+    setUser(null);
+  };
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>
@@ -25,10 +42,10 @@ export const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
+// Hook to use the AuthContext
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+  return useContext(AuthContext);
 };
+
+// Optionally export AuthContext for direct access
+export { AuthContext };
