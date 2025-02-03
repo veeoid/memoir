@@ -28,13 +28,13 @@ const BlogPage: React.FC = () => {
 
   if (loading) return <div>Loading...</div>;
   if (!post) return <div>Post not found</div>;
-
+  console.log(`Backend URL: ${post.image}`);
   return (
     <div className="blog-page-container">
       <h1 className="blog-title">{post.title}</h1>
-      {post.image_url && (
+      {post.image && (
         <img
-          src={post.image_url}
+          src={`${post.image}`}
           alt={post.title}
           className="blog-post-image"
         />

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { User } from '../types/user'; // Import the User type
-import { useAuth } from '../contexts/AuthContext';
-import './NavBar.css'; // make sure to create and link your NavBar.css
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import "./NavBar.css";
 
 const NavBar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,10 +10,13 @@ const NavBar: React.FC = () => {
 
   const handleLogout = () => {
     signOut();
-    navigate('/');
+    navigate("/");
   };
   const handleCreate = () => {
-    navigate('/create-blog'); // Navigate to the create blog page
+    navigate("/create-blog"); // Navigate to the create blog page
+  };
+  const goToProfile = () => {
+    navigate("/user-profile");
   };
 
   return (
@@ -25,33 +27,45 @@ const NavBar: React.FC = () => {
       </Link>
 
       <div className="navbar-content">
-      {user && (
-        <button onClick={handleCreate} className="navbar-create">
-          Create
-        </button>
-      )}
-      {user ? (
-        <div className="navbar-user">
-          <button
-            className="navbar-user-button"
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            {user.email || 'User'} {/* Fallback to 'User' if name is not available */}
+        {user && (
+          <button onClick={handleCreate} className="navbar-create">
+            Create
           </button>
+        )}
+        {user ? (
+          <div className="navbar-user">
+            <button
+              className="navbar-user-button"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              {user.email || "User"}{" "}
+              {/* Fallback to 'User' if name is not available */}
+            </button>
             {isDropdownOpen && (
               <div className="navbar-dropdown">
                 <ul>
-                  <li><Link to="/profile">Profile</Link></li>
-                  <li><Link to="/settings">Settings</Link></li>
-                  <li><button onClick={handleLogout}>Logout</button></li>
+                  <li>
+                    {/* <Link to="/profile">Profile</Link> */}
+                    <button onClick={goToProfile}>Profile</button>
+                  </li>
+                  <li>
+                    <Link to="/settings">Settings</Link>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout}>Logout</button>
+                  </li>
                 </ul>
               </div>
             )}
           </div>
         ) : (
           <div className="navbar-buttons">
-            <Link to="/signin" className="navbar-link">Sign In</Link>
-            <Link to="/signup" className="navbar-link">Sign Up</Link>
+            <Link to="/signin" className="navbar-link">
+              Sign In
+            </Link>
+            <Link to="/signup" className="navbar-link">
+              Sign Up
+            </Link>
           </div>
         )}
       </div>

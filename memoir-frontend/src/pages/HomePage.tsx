@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
             onClick={() => goToBlogPost(post.id)}
           >
             <img
-              src={post.image_url || "default-placeholder.png"}
+              src={post.image || "default-placeholder.png"}
               alt={post.title}
             />
             <div className="blog-post-info">

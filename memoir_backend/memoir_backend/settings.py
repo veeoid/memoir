@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+# memoir_backend/settings.py
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'blog',  # Your custom blog app
     'rest_framework',  # Django REST framework
     'corsheaders',  # CORS headers
+    'rest_framework.authtoken',  # Add this for token authentication
+    'dj_rest_auth',
 ]
 
 
@@ -74,6 +77,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "memoir_backend.wsgi.application"
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -131,3 +139,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Adjust the port if your frontend runs on a different port
 ]
 CORS_ALLOW_ALL_ORIGINS = True  # For development only, restrict in production
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # For token authentication
+        # 'rest_framework.authentication.SessionAuthentication',  # If using session auth
+    ],
+}
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
