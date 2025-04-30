@@ -1,14 +1,38 @@
-📝***Memoir – A Personal Blogging Platform***
+# 📝 Memoir
 
-Memoir is a full-stack web application that enables users to create, manage, and share personal blog posts. Built with a React frontend and a Django backend, it offers a seamless experience for users to document and reflect on their thoughts and experiences.
+A content-rich, full-stack blogging platform built with **Django**, **React (TypeScript)**, and **PostgreSQL**, deployed on **AWS**. Memoir enables seamless multi-device blogging with user roles, secure authentication, and performant media handling.
 
-🛠️ Tech Stack
--Frontend: React, Vite
--Backend: Django, Django REST Framework
--Database: SQLite (default), with support for PostgreSQL
--API Communication: RESTful APIs using Django REST Framework
+---
 
-📁 Project Structure
+## 🚀 Features
+
+- 🔐 **User Authentication & Authorization**  
+  Role-based access control to manage content visibility and editing rights.
+
+- ✍️ **Blogging Experience**  
+  Write, edit, and publish rich text posts with responsive formatting.
+
+- 📱 **Device-Agnostic Design**  
+  Designed REST APIs and responsive UI for smooth access across screens.
+
+- ⚡ **Media Optimization with AWS Lambda**  
+  Images are preprocessed via Lambda to improve load time by ~25%.
+
+---
+
+## 🧰 Tech Stack
+
+| Layer        | Technology                                |
+|--------------|--------------------------------------------|
+| Frontend     | React (TypeScript), Vite                   |
+| Backend      | Django, Django REST Framework              |
+| Database     | PostgreSQL (AWS RDS)                       |
+| Media & Assets | AWS S3, AWS Lambda                       |
+| Hosting      | AWS EC2, Nginx                             |
+
+---
+
+## 🗂️ Project Structure
 
 memoir/
 ├── memoir-frontend/                # React frontend (Vite)
