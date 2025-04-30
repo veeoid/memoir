@@ -1,4 +1,5 @@
 📝*Memoir – A Personal Blogging Platform*
+
 Memoir is a full-stack web application that enables users to create, manage, and share personal blog posts. Built with a React frontend and a Django backend, it offers a seamless experience for users to document and reflect on their thoughts and experiences.
 
 🛠️ Tech Stack
