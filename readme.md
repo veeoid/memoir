@@ -4,11 +4,8 @@ Memoir is a full-stack web application that enables users to create, manage, and
 
 🛠️ Tech Stack
 -Frontend: React, Vite
-
 -Backend: Django, Django REST Framework
-
 -Database: SQLite (default), with support for PostgreSQL
-
 -API Communication: RESTful APIs using Django REST Framework
 
 📁 Project Structure
@@ -42,15 +39,11 @@ memoir/
 │   └── manage.py                  # Django CLI utility
 
 🚀 Features
-User Authentication: Secure login and registration system.
-
-Create & Edit Posts: Users can write new blog posts and edit existing ones.
-
-Delete Posts: Option to remove unwanted posts.
-
-Responsive Design: Mobile-friendly interface for seamless user experience.
-
-RESTful API: Backend APIs to handle CRUD operations.
+-User Authentication: Secure login and registration system.
+-Create & Edit Posts: Users can write new blog posts and edit existing ones.
+-Delete Posts: Option to remove unwanted posts.
+-Responsive Design: Mobile-friendly interface for seamless user experience.
+-RESTful API: Backend APIs to handle CRUD operations.
 
 🧪 Getting Started
 #Prerequisites
